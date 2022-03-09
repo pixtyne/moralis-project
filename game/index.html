@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Vanilla Boilerplate</title>
+    <title>An Oyster game</title>
 
 	  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
      <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
@@ -33,8 +33,8 @@
       }
   </style>
 
-  
-  <!-- and can be removed -->
+
+  <!-- en of style-->
     
 
     <button id="btn-login" class="button">Metamask login</button>
@@ -46,6 +46,8 @@
       // connect to Moralis server
       Moralis.initialize("MnGVGnKETxoTUos70tGbteexL27tSHtvxadXVUQR");
       Moralis.serverURL = "https://ntmuebsneckt.usemoralis.com:2053/server";
+
+      
 
 
       // add from here down
@@ -119,9 +121,9 @@
     function preload ()
 {
     this.load.image('background', 'assets/BG.png');
-    this.load.image('ground', 'assets/Tiles/tile (right).png');
-    this.load.image('ground2', 'assets/Tiles/tile (left).png');
-    this.load.image('ground3', 'assets/Tiles/tile (middl).png');
+    this.load.image('ground', 'assets/Tiles/rockright.png');
+    this.load.image('ground2', 'assets/Tiles/rockleft.png');
+    this.load.image('ground3', 'assets/Tiles/rockmiddle.png');
     this.load.image('player', 'assets/player.png');
     this.load.image('star', 'assets/Objects/star.png');
 
@@ -152,6 +154,7 @@
 
         player = this.physics.add.sprite(600,250, 'player').setScale(0.3).refreshBody();
         player.setBounce(0.4);
+        
         //player.setCollideWorldBounds(true);
 
         this.physics.add.collider(player, platforms);
@@ -179,10 +182,6 @@
             //score
          scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
-
-
-
-
 }
 
         //collect stars function
@@ -191,7 +190,7 @@
               {
                   star.disableBody(true, true);
 
-                  score += 10;
+                  score += 30;
                   scoreText.setText('Score: ' + score);
               }
                               
@@ -218,13 +217,7 @@
           {
               player.setVelocityY(-370);
           }
-
-                  
-
               }
-
-
-
     </script>
 
 
